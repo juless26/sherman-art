@@ -32,79 +32,108 @@ a { color: var(--accent); text-underline-offset: 3px; }
 a:hover { color: var(--accent-hover); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* ---- Header ---- */
-.site-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding-block: 40px 28px;
-  text-align: center;
-}
-.name {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(28px, 5vw, 44px);
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  margin-right: -0.32em; /* balances the letter spacing so the name looks centered */
-}
-.tagline {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 28px;
-  margin-top: 18px;
-}
-.nav a {
-  font-family: var(--display);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  padding-block: 4px;
-  border-bottom: 1px solid transparent;
-}
-.nav a:hover { border-bottom-color: var(--ink); color: var(--ink); }
-
-/* ---- Slideshow ---- */
-.hero { max-width: 1200px; margin: 0 auto; }
-.hero-frame {
+/* ---- Home screen (modeled on sonyasklaroff.com) ---- */
+.home {
   position: relative;
-  height: min(68vh, 720px);
-  min-height: 320px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-inline: calc(-1 * var(--gutter));
+  display: grid;
+  place-items: center;
+  padding: 72px 16px;
+  overflow: hidden;
 }
+.home-slides { position: absolute; inset: 0; }
 .hero-slide {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   opacity: 0;
-  transition: opacity 1.4s ease;
+  transition: opacity 1.6s ease;
 }
 .hero-slide.is-active { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
-.hero-caption {
+.home-panel {
+  position: relative;
+  width: min(760px, 100%);
+  background: var(--wall);
+  padding: clamp(56px, 9vw, 88px) 24px clamp(64px, 10vw, 104px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  font-style: italic;
-  color: var(--muted);
-  font-size: 15px;
-  margin: 22px 0 0;
-  min-height: 1.6em;
+  gap: 40px;
 }
+.home-name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(22px, 3.2vw, 30px);
+  letter-spacing: 0.7em;
+  margin-right: -0.7em; /* balances the letter spacing so the name sits centered */
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.home-tagline { margin: 0; font-size: 19px; font-weight: 400; }
+.home-tagline a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.home-tagline a:hover { border-bottom-color: var(--ink); }
+.home-nav { display: flex; flex-direction: column; gap: 26px; margin-top: 12px; }
+.home-nav a {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-right: -0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+.home-nav a:hover { color: var(--ink); }
+
+/* ---- Slim bar after the home screen ---- */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 14px var(--gutter);
+  background: var(--wall);
+  border-bottom: 1px solid var(--line);
+  transform: translateY(-110%);
+  transition: transform .3s ease;
+}
+.topbar.is-visible { transform: none; }
+.topbar-name {
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+.topbar-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.topbar-nav a {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+.topbar-nav a:hover { color: var(--ink); }
+[id] { scroll-margin-top: 72px; }
 
 /* ---- Sections ---- */
 .section {
@@ -233,16 +262,14 @@ figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 22px; 
   gap: 56px;
   margin-top: 20px;
 }
-.contact-info p { margin: 0 0 12px; }
-.email { font-size: 22px; }
+.contact-info p { margin: 0 0 12px; font-size: 16px; }
 .contact-form { display: flex; flex-direction: column; gap: 6px; }
 .contact-form label {
-  font-family: var(--display);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+  font-size: 16px;
+  color: var(--ink);
   margin-top: 10px;
 }
+.contact-form label:first-of-type { margin-top: 0; }
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -304,4 +331,10 @@ figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 22px; 
 @media (max-width: 760px) {
   .lightbox-body { grid-template-columns: 1fr; padding: 48px 20px 24px; gap: 16px; }
   .lightbox-body img { max-height: 55vh; }
+}
+
+@media (max-width: 480px) {
+  .home-name { font-size: 20px; letter-spacing: 0.4em; margin-right: -0.4em; }
+  .topbar { justify-content: center; }
+  .topbar-name { display: none; }
 }

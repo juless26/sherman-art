@@ -15,10 +15,27 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <a class="name" href="#top" id="top">Mark Sherman</a>
-    <p class="tagline">Realistic watercolor · San Diego</p>
-    <nav class="nav" aria-label="Main">
+  <!-- Home screen: paintings fade behind a white panel, like sonyasklaroff.com.
+       The slideshow photos are listed under SLIDESHOW in paintings.js. -->
+  <section class="home" id="top" aria-label="Mark Sherman">
+    <div class="home-slides" id="hero"></div>
+    <div class="home-panel">
+      <h1 class="home-name">Mark Sherman</h1>
+      <p class="home-tagline"><a href="https://www.etsy.com/shop/MarkShermanArt" target="_blank" rel="noopener">Original watercolors for sale</a></p>
+      <nav class="home-nav" aria-label="Main">
+        <a href="#works">Works</a>
+        <a href="#commissions">Commissions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.etsy.com/shop/MarkShermanArt" target="_blank" rel="noopener">Shop</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Slim bar that appears once you scroll past the home screen -->
+  <header class="topbar" id="topbar">
+    <a class="topbar-name" href="#top">Mark Sherman</a>
+    <nav class="topbar-nav" aria-label="Sections">
       <a href="#works">Works</a>
       <a href="#commissions">Commissions</a>
       <a href="#about">About</a>
@@ -28,12 +45,6 @@
   </header>
 
   <main>
-
-    <!-- Slideshow: fades through the photos listed under SLIDESHOW in paintings.js -->
-    <section class="hero" aria-label="Featured paintings">
-      <div class="hero-frame" id="hero"></div>
-      <p class="hero-caption" id="hero-caption"></p>
-    </section>
 
     <section id="works" class="section">
       <h2 class="section-title">Works</h2>
@@ -79,8 +90,8 @@
       <img class="about-photo" src="images/mark-sherman.jpg" alt="Mark Sherman" width="600" height="750">
       <div class="about-text">
         <h2 class="section-title">About</h2>
-        <p>A Brooklyn-born original, Dr. Mark Sherman's award-winning work as a watercolorist was diverted while he temporarily pursued an academic career as a professor of clinical psychology for three decades. When he returned to art, Dr. Sherman's first painting was of the Old Point Loma Lighthouse, in San Diego — and thus began a trend.</p>
-        <p>Lighthouse enthusiasts have become avid collectors of Mark Sherman's watercolor creations, and prints of his remarkable lighthouse series have been nominated for excellence by Collector Editions and by the National Association of Limited Edition Dealers (NALED). Award-winning portraits, pet portraits and wildlife illustrations add to the reputation of this acclaimed watercolorist.</p>
+        <p>I'm a Brooklyn native. My award-winning work as a watercolorist went on hold for three decades while I worked as a professor of clinical psychology. When I returned to art, my first painting was the Old Point Loma Lighthouse in San Diego, and that started a trend.</p>
+        <p>Lighthouse enthusiasts have become avid collectors of my watercolors. Prints from my lighthouse series have been nominated for excellence by Collector Editions and by the National Association of Limited Edition Dealers (NALED). I also paint portraits, pet portraits and wildlife, and those paintings have won awards too.</p>
         <ul class="honors">
           <li><span>2000</span> <div>Graphic Print of the Year, NALED, for <em>Cape Hatteras Lighthouse</em></div></li>
           <li><span>Del Mar Fair</span> <div>Second place, watercolor, for <em>Tipping Point</em></div></li>

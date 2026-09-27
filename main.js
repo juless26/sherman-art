@@ -5,7 +5,6 @@
 
   // ---- Slideshow (photos from images/commissions/) ----
   const hero = document.getElementById("hero");
-  const heroCaption = document.getElementById("hero-caption");
   const featured = SLIDESHOW;
   featured.forEach((s, i) => {
     const img = document.createElement("img");
@@ -22,7 +21,6 @@
     slides[current].classList.remove("is-active");
     current = (n + slides.length) % slides.length;
     slides[current].classList.add("is-active");
-    heroCaption.textContent = featured[current].caption || "";
   }
   showSlide(0);
   if (!reduceMotion && featured.length > 1) {
@@ -70,6 +68,15 @@
   }
   document.getElementById("lightbox-close").addEventListener("click", () => lb.close());
   lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+
+  // Show the slim top bar once the home screen scrolls away
+  const topbar = document.getElementById("topbar");
+  const home = document.getElementById("top");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => topbar.classList.toggle("is-visible", !e.isIntersecting), { threshold: 0.05 }).observe(home);
+  } else {
+    topbar.classList.add("is-visible");
+  }
 
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
