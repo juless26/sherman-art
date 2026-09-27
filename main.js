@@ -28,56 +28,51 @@
     if (!reduceMotion && SLIDESHOW.length > 1) setInterval(() => show(current + 1), 5500);
   }
 
-  // ---- Works grid ----
+  // ---- Works gallery and full-screen viewer ----
   const grid = document.getElementById("grid");
   const lb = document.getElementById("lightbox");
   const priceText = p => (p.status === "sold" ? "Sold" : p.price || "");
+  let shown = 0;
 
-  function openPainting(p) {
+  function openPainting(i) {
+    shown = (i + PAINTINGS.length) % PAINTINGS.length;
+    const p = PAINTINGS[shown];
     const img = document.getElementById("lb-img");
     img.src = IMG_DIR + p.image;
     img.alt = p.title + ", watercolor by Mark Sherman";
     document.getElementById("lb-title").textContent = p.title;
-    document.getElementById("lb-meta").textContent = [p.size, p.framed, priceText(p)].filter(Boolean).join(" · ");
-    document.getElementById("lb-desc").textContent = p.description || "";
+    document.getElementById("lb-meta").textContent = [p.size, priceText(p)].filter(Boolean).join(" · ");
     const buy = document.getElementById("lb-buy");
     buy.href = p.etsy || "#";
     buy.hidden = p.status === "sold" || !p.etsy;
-    lb.showModal();
+    if (!lb.open) lb.showModal();
   }
 
   if (grid && typeof PAINTINGS !== "undefined") {
-    PAINTINGS.forEach(p => {
-      const fig = document.createElement("figure");
-      fig.className = "work";
+    PAINTINGS.forEach((p, i) => {
       const btn = document.createElement("button");
-      btn.className = "work-image";
-      btn.setAttribute("aria-label", "See " + p.title + " larger");
+      btn.className = "gallery-item";
+      btn.setAttribute("aria-label", p.title + ", see larger");
       const img = document.createElement("img");
       img.src = IMG_DIR + p.image;
       img.alt = p.title + ", watercolor by Mark Sherman";
-      img.loading = "lazy";
+      img.loading = i < 4 ? "eager" : "lazy";
       btn.appendChild(img);
-      btn.addEventListener("click", () => openPainting(p));
-      const cap = document.createElement("figcaption");
-      const t = document.createElement("span");
-      t.className = "work-title";
-      t.textContent = p.title;
-      cap.appendChild(t);
-      [p.size, priceText(p)].filter(Boolean).forEach(line => {
-        const m = document.createElement("span");
-        m.className = "work-meta";
-        m.textContent = line;
-        cap.appendChild(m);
-      });
-      fig.append(btn, cap);
-      grid.appendChild(fig);
+      btn.addEventListener("click", () => openPainting(i));
+      grid.appendChild(btn);
     });
   }
 
   if (lb) {
     document.getElementById("lightbox-close").addEventListener("click", () => lb.close());
+    document.getElementById("lb-prev").addEventListener("click", () => openPainting(shown - 1));
+    document.getElementById("lb-next").addEventListener("click", () => openPainting(shown + 1));
     lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+    document.addEventListener("keydown", e => {
+      if (!lb.open) return;
+      if (e.key === "ArrowLeft") openPainting(shown - 1);
+      if (e.key === "ArrowRight") openPainting(shown + 1);
+    });
   }
 
   const year = document.getElementById("year");

@@ -29,10 +29,14 @@
 
   <main>
 
+    <!-- Large page title over a faded painting, like sonyasklaroff.com -->
+    <section class="page-banner" aria-label="Works">
+      <img class="page-banner-img" src="images/commissions/pet-huskies.jpg" alt="">
+      <h1 class="page-title">Works</h1>
+    </section>
+
     <section id="works" class="section page">
-      <h2 class="section-title">Works</h2>
-      <p class="section-note">Original watercolors on archival 300 lb Arches paper, double matted and framed. Click a painting to see it larger.</p>
-      <div class="grid" id="grid"></div>
+      <div class="gallery" id="grid"></div>
     </section>
 
   </main>
@@ -41,18 +45,18 @@
     <p>© <span id="year"></span> Mark Sherman. All paintings are copyrighted by the artist.</p>
   </footer>
 
-  <!-- Larger view of a painting -->
-  <dialog class="lightbox" id="lightbox" aria-label="Painting detail">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
-    <div class="lightbox-body">
+  <!-- Full-screen view of a painting. Shows the title and size; arrows move between paintings. -->
+  <dialog class="viewer" id="lightbox" aria-label="Painting">
+    <button class="viewer-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <button class="viewer-arrow viewer-prev" id="lb-prev" aria-label="Previous painting">&#8249;</button>
+    <figure class="viewer-figure">
       <img id="lb-img" alt="">
-      <div class="lightbox-text">
-        <h3 id="lb-title"></h3>
-        <p class="meta" id="lb-meta"></p>
-        <p id="lb-desc"></p>
-        <a class="button" id="lb-buy" target="_blank" rel="noopener">View on Etsy</a>
-      </div>
-    </div>
+      <figcaption class="viewer-caption">
+        <span id="lb-title"></span><span id="lb-meta"></span>
+        <a id="lb-buy" target="_blank" rel="noopener">View on Etsy</a>
+      </figcaption>
+    </figure>
+    <button class="viewer-arrow viewer-next" id="lb-next" aria-label="Next painting">&#8250;</button>
   </dialog>
 
 
