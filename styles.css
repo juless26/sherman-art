@@ -154,7 +154,7 @@ figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 22px; 
 /* ---- Commissions ---- */
 .commission-samples {
   display: grid;
-  grid-template-columns: 1.87fr 1fr; /* matches the two images' shapes so their heights line up */
+  grid-template-columns: 1.82fr 1fr; /* matches the two images' shapes so their heights line up */
   gap: 32px;
   margin: 28px 0 8px;
   align-items: end;
@@ -305,4 +305,11 @@ figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 22px; 
 @media (max-width: 760px) {
   .lightbox-body { grid-template-columns: 1fr; padding: 48px 20px 24px; gap: 16px; }
   .lightbox-body img { max-height: 55vh; }
+}
+
+@media (max-width: 480px) {
+  .name { font-size: 26px; letter-spacing: 0.24em; margin-right: -0.24em; }
+  .tagline { font-size: 12px; }
+  .nav { gap: 6px 16px; }
+  .nav a { font-size: 13px; letter-spacing: 0.1em; }
 }
