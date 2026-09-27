@@ -7,6 +7,7 @@
   --line: #E2E5EA;        /* thin dividers */
   --accent: #2A4E86;      /* links and buttons: deep lighthouse blue */
   --accent-hover: #1C3867;
+  --burgundy: #7D1D3F;    /* the name at the top of every page */
   --display: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --gutter: clamp(16px, 4vw, 48px);
@@ -48,10 +49,10 @@ a:hover { color: var(--accent-hover); }
   letter-spacing: 0.32em;
   margin-right: -0.32em; /* balances the letter spacing so the name looks centered */
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--burgundy);
   text-decoration: none;
 }
-.name:hover { color: var(--ink); }
+.name:hover { color: var(--burgundy); }
 .tagline {
   margin: 0;
   font-family: var(--display);
@@ -126,15 +127,14 @@ a:hover { color: var(--accent-hover); }
 }
 .section-note { color: var(--muted); margin: 0 0 40px; max-width: 62ch; font-size: 16px; }
 
-/* ---- Works page title banner ---- */
+/* ---- Works page banner: faded painting behind the header and title (like sonyasklaroff.com) ---- */
 .page-banner {
   position: relative;
   margin-inline: calc(-1 * var(--gutter));
-  height: clamp(180px, 28vw, 300px);
-  display: grid;
-  place-items: center;
+  padding-inline: var(--gutter);
+  padding-bottom: clamp(32px, 5vw, 56px);
   overflow: hidden;
-  background: var(--wall);
+  text-align: center;
 }
 .page-banner-img {
   position: absolute;
@@ -143,11 +143,18 @@ a:hover { color: var(--accent-hover); }
   height: 100%;
   object-fit: cover;
   object-position: center 30%; /* keeps the hummingbird in view */
-  opacity: 0.22;
 }
+.page-banner::before {           /* white wash over the painting, 66% like Sonya's */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.66);
+  z-index: 1;
+}
+.page-banner > .site-header,
+.page-banner > .page-title { position: relative; z-index: 2; }
 .page-title {
-  position: relative;
-  margin: 0;
+  margin: 8px 0 0;
   font-family: var(--display);
   font-weight: 300;
   font-size: clamp(48px, 9vw, 104px);
@@ -156,6 +163,7 @@ a:hover { color: var(--accent-hover); }
   text-transform: uppercase;
   color: #3B3F48;
 }
+.page-banner + main .section.page { padding-top: clamp(32px, 4vw, 48px); }
 
 /* ---- Works gallery: two even columns of large paintings, in rows ---- */
 .gallery {
