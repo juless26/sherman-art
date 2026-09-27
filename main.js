@@ -68,6 +68,15 @@
     document.getElementById("lb-prev").addEventListener("click", () => openPainting(shown - 1));
     document.getElementById("lb-next").addEventListener("click", () => openPainting(shown + 1));
     lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+    // Swipe left or right on a phone to move between paintings
+    let startX = null;
+    lb.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) openPainting(shown + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
     document.addEventListener("keydown", e => {
       if (!lb.open) return;
       if (e.key === "ArrowLeft") openPainting(shown - 1);

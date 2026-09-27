@@ -207,7 +207,7 @@ a:hover { color: var(--accent-hover); }
   border-top: 1px solid var(--line);
 }
 .commission p { margin: 0 0 10px; font-size: 16.5px; }
-.pricing { margin: 0 0 32px; max-width: 62ch; font-variant-numeric: tabular-nums; }
+.pricing { margin: 0 0 32px; max-width: 62ch; font-size: 16.5px; font-variant-numeric: tabular-nums; }
 
 .button {
   display: inline-block;
@@ -311,6 +311,7 @@ a:hover { color: var(--accent-hover); }
 .viewer {
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* fits between the phone's browser bars */
   max-width: none;
   max-height: none;
   margin: 0;
@@ -332,6 +333,7 @@ a:hover { color: var(--accent-hover); }
 .viewer-figure img {
   max-width: 100%;
   max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 140px);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -363,9 +365,16 @@ a:hover { color: var(--accent-hover); }
   .viewer-arrow { font-size: 36px; padding: 4px; }
 }
 
+/* ---- Phones ---- */
 @media (max-width: 480px) {
+  .site-header { padding-block: 28px 12px; }
   .name { font-size: 26px; letter-spacing: 0.24em; margin-right: -0.24em; }
   .tagline { font-size: 12px; }
-  .nav { gap: 6px 16px; }
-  .nav a { font-size: 13px; letter-spacing: 0.1em; }
+  .nav { gap: 0 12px; margin-top: 10px; }
+  .nav a { font-size: 12px; letter-spacing: 0.06em; padding-block: 12px; } /* taller tap area */
+  /* Home slideshow: a square frame so wide and tall paintings both fill the phone screen */
+  .hero-frame { height: auto; min-height: 0; aspect-ratio: 1 / 1; }
+  .hero-caption { margin-top: 12px; }
+  .contact-info a { display: inline-block; padding-block: 8px; }
+  .section.page { padding-block: 24px 0; }
 }
