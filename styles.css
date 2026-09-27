@@ -7,7 +7,7 @@
   --line: #E2E5EA;        /* thin dividers */
   --accent: #2A4E86;      /* links and buttons: deep lighthouse blue */
   --accent-hover: #1C3867;
-  --burgundy: #7D1D3F;    /* the name at the top of every page */
+  --name-red: #BA0D0D;    /* the name at the top of every page (same red as sonyasklaroff.com) */
   --display: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --gutter: clamp(16px, 4vw, 48px);
@@ -49,10 +49,10 @@ a:hover { color: var(--accent-hover); }
   letter-spacing: 0.32em;
   margin-right: -0.32em; /* balances the letter spacing so the name looks centered */
   text-transform: uppercase;
-  color: var(--burgundy);
+  color: var(--name-red);
   text-decoration: none;
 }
-.name:hover { color: var(--burgundy); }
+.name:hover { color: var(--name-red); }
 .tagline {
   margin: 0;
   font-family: var(--display);
