@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mark Sherman | Watercolor Artist</title>
+  <title>Works | Mark Sherman</title>
   <meta name="description" content="Original realistic watercolors by award-winning San Diego artist Mark Sherman. Wildlife, racehorses, lighthouses, flowers, portraits and commissions.">
   <meta property="og:title" content="Mark Sherman | Watercolor Artist">
   <meta property="og:description" content="Original realistic watercolors by award-winning San Diego artist Mark Sherman.">
@@ -19,7 +19,7 @@
     <a class="name" href="index.html">Mark Sherman</a>
     <p class="tagline">Realistic watercolor · San Diego</p>
     <nav class="nav" aria-label="Main">
-      <a href="works.html">Works</a>
+      <a href="works.html" aria-current="page">Works</a>
       <a href="commissions.html">Commissions</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -28,16 +28,33 @@
   </header>
 
   <main>
-    <!-- Slideshow: fades through the photos listed under SLIDESHOW in paintings.js -->
-    <section class="hero" aria-label="Featured paintings">
-      <div class="hero-frame" id="hero"></div>
-      <p class="hero-caption" id="hero-caption"></p>
+
+    <section id="works" class="section page">
+      <h2 class="section-title">Works</h2>
+      <p class="section-note">Original watercolors on archival 300 lb Arches paper, double matted and framed. Click a painting to see it larger.</p>
+      <div class="grid" id="grid"></div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Mark Sherman. All paintings are copyrighted by the artist.</p>
   </footer>
+
+  <!-- Larger view of a painting -->
+  <dialog class="lightbox" id="lightbox" aria-label="Painting detail">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-body">
+      <img id="lb-img" alt="">
+      <div class="lightbox-text">
+        <h3 id="lb-title"></h3>
+        <p class="meta" id="lb-meta"></p>
+        <p id="lb-desc"></p>
+        <a class="button" id="lb-buy" target="_blank" rel="noopener">View on Etsy</a>
+      </div>
+    </div>
+  </dialog>
+
 
   <script src="paintings.js"></script>
   <script src="main.js"></script>

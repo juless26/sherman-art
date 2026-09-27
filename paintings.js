@@ -2,14 +2,25 @@
   THE PAINTINGS LIST (shown in Works)
   ------------------
   To add a painting: copy one block from { to }, paste it, and change the details.
-  Put the photo in images/paintings/ and write its file name in "image".
+  Put the photo in images/paintings/ (or images/commissions/) and write the folder and file name in "image",
+  for example "paintings/sunset.jpg". Leave size, price or etsy as "" to leave them off.
   To mark a painting sold: change status to "sold". To hide it: delete its block.
   Sizes are image size (width × height, in inches), then the framed outside size.
 */
 const PAINTINGS = [
   {
+    title: "Tipping Point",
+    image: "commissions/tipping-point.jpg",
+    size: '22" × 30"',
+    framed: '34" × 43" framed',
+    price: "$1,500",
+    status: "available",
+    etsy: "https://www.etsy.com/listing/730448215/tipping-point",
+    description: "The realistic painting depicts the caring behavior of a mother wolf with her two pups, all situated on the edge of a rocky precipice. This painting won second place for watercolor at the Del Mar Fair."
+  },
+  {
     title: "White Night",
-    image: "white-night.jpg",
+    image: "paintings/white-night.jpg",
     size: '14" × 18"',
     framed: '26" × 29" framed',
     price: "$600",
@@ -19,7 +30,7 @@ const PAINTINGS = [
   },
   {
     title: "When Birds Meet",
-    image: "when-birds-meet.jpg",
+    image: "paintings/when-birds-meet.jpg",
     size: '11" × 14"',
     framed: '20" × 24" framed',
     price: "$500",
@@ -29,7 +40,7 @@ const PAINTINGS = [
   },
   {
     title: "Next Stop Del Mar",
-    image: "next-stop-del-mar.jpg",
+    image: "paintings/next-stop-del-mar.jpg",
     size: '7.5" × 11.5"',
     framed: "Wood frame with rounded corners",
     price: "$500",
@@ -39,7 +50,7 @@ const PAINTINGS = [
   },
   {
     title: "Oxpecker? What Oxpecker?",
-    image: "oxpecker.jpg",
+    image: "paintings/oxpecker.jpg",
     size: '15" × 18"',
     framed: '25" × 30" framed',
     price: "$500",
@@ -49,7 +60,7 @@ const PAINTINGS = [
   },
   {
     title: "Have We Met?",
-    image: "have-we-met.jpg",
+    image: "paintings/have-we-met.jpg",
     size: '7" × 10"',
     framed: '14" × 17" framed',
     price: "$400",
@@ -59,7 +70,7 @@ const PAINTINGS = [
   },
   {
     title: "Justify 3X",
-    image: "justify-3x.jpg",
+    image: "paintings/justify-3x.jpg",
     size: '14" × 18"',
     framed: '21" × 25" framed',
     price: "$600",
@@ -69,7 +80,7 @@ const PAINTINGS = [
   },
   {
     title: "Nyquist's Quest",
-    image: "nyquists-quest.jpg",
+    image: "paintings/nyquists-quest.jpg",
     size: '14" × 18"',
     framed: '21" × 25" framed',
     price: "$500",
@@ -78,18 +89,8 @@ const PAINTINGS = [
     description: "Nyquist was undefeated when he went on to win the Kentucky Derby in 2016. The painting depicts Nyquist later losing to Exaggerator in the Preakness."
   },
   {
-    title: "Old Point Loma Lighthouse",
-    image: "old-point-loma.jpg",
-    size: '6" × 20"',
-    framed: '11" × 25" black frame',
-    price: "$400",
-    status: "available",
-    etsy: "https://www.etsy.com/listing/714371406/old-point-loma-lighthouse-mark-sherman",
-    description: "The Old Point Loma Lighthouse at Cabrillo National Monument in San Diego."
-  },
-  {
     title: "A Very Still Life",
-    image: "a-very-still-life.jpg",
+    image: "paintings/a-very-still-life.jpg",
     size: '14" × 18"',
     framed: '24" × 28" framed',
     price: "$500",
@@ -99,13 +100,33 @@ const PAINTINGS = [
   },
   {
     title: "Hands Holding Flowers Through Picasso",
-    image: "picasso-hands.jpg",
+    image: "paintings/picasso-hands.jpg",
     size: '23" × 27"',
     framed: "",
     price: "$600",
     status: "available",
     etsy: "https://www.etsy.com/listing/718841050/hands-holding-flowers-through-picasso",
     description: "A portrait of Picasso in which a take-off of his famous 'Hands Holding Flowers' painting shows through the stripes of his shirt."
+  },
+  {
+    title: "Pet portrait",
+    image: "commissions/pet-huskies.jpg",
+    size: "",
+    framed: "",
+    price: "Commission",
+    status: "commission",
+    etsy: "",
+    description: "A commissioned watercolor portrait of two huskies."
+  },
+  {
+    title: "Pet portrait",
+    image: "commissions/pet-bulldog.jpg",
+    size: "",
+    framed: "",
+    price: "Commission",
+    status: "commission",
+    etsy: "",
+    description: "A commissioned watercolor portrait of a bulldog."
   }
 ];
 
