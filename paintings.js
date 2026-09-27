@@ -137,7 +137,7 @@ const PAINTINGS = [
   and add a line below. The caption appears under the slide; leave it "" for none.
 */
 const SLIDESHOW = [
-  { image: "tipping-point.jpg", caption: "Tipping Point" },
   { image: "pet-huskies.jpg",   caption: "Pet portrait" },
-  { image: "pet-bulldog.jpg",   caption: "Pet portrait" }
+  { image: "pet-bulldog.jpg",   caption: "Pet portrait" },
+  { image: "tipping-point.jpg", caption: "Tipping Point" }
 ];
