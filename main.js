@@ -3,17 +3,16 @@
   const IMG_DIR = "images/paintings/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ---- Slideshow ----
+  // ---- Slideshow (photos from images/commissions/) ----
   const hero = document.getElementById("hero");
   const heroCaption = document.getElementById("hero-caption");
-  const featured = PAINTINGS.filter(p => p.featured);
-  featured.forEach((p, i) => {
+  const featured = SLIDESHOW;
+  featured.forEach((s, i) => {
     const img = document.createElement("img");
-    img.src = IMG_DIR + p.image;
-    img.alt = p.title + ", watercolor by Mark Sherman";
+    img.src = "images/commissions/" + s.image;
+    img.alt = (s.caption || "Painting") + " by Mark Sherman";
     img.className = "hero-slide" + (i === 0 ? " is-active" : "");
     img.loading = i === 0 ? "eager" : "lazy";
-    img.addEventListener("click", () => openPainting(p));
     hero.appendChild(img);
   });
   let current = 0;
@@ -23,7 +22,7 @@
     slides[current].classList.remove("is-active");
     current = (n + slides.length) % slides.length;
     slides[current].classList.add("is-active");
-    heroCaption.textContent = featured[current].title;
+    heroCaption.textContent = featured[current].caption || "";
   }
   showSlide(0);
   if (!reduceMotion && featured.length > 1) {

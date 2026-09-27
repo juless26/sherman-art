@@ -1,24 +1,12 @@
 /*
-  THE PAINTINGS LIST
+  THE PAINTINGS LIST (shown in Works)
   ------------------
   To add a painting: copy one block from { to }, paste it, and change the details.
   Put the photo in images/paintings/ and write its file name in "image".
   To mark a painting sold: change status to "sold". To hide it: delete its block.
-  featured: true puts the painting in the large slideshow at the top of the page.
   Sizes are image size (width × height, in inches), then the framed outside size.
 */
 const PAINTINGS = [
-  {
-    title: "Tipping Point",
-    image: "tipping-point.jpg",
-    size: '22" × 30"',
-    framed: '34" × 43" framed',
-    price: "$1,500",
-    status: "available",
-    featured: true,
-    etsy: "https://www.etsy.com/listing/730448215/tipping-point",
-    description: "The realistic painting depicts the caring behavior of a mother wolf with her two pups, all situated on the edge of a rocky precipice. This painting won second place for watercolor at the Del Mar Fair."
-  },
   {
     title: "White Night",
     image: "white-night.jpg",
@@ -26,7 +14,6 @@ const PAINTINGS = [
     framed: '26" × 29" framed',
     price: "$600",
     status: "available",
-    featured: true,
     etsy: "https://www.etsy.com/listing/714911140/white-night-mark-sherman-original",
     description: "White tiger head against a black background."
   },
@@ -37,7 +24,6 @@ const PAINTINGS = [
     framed: '20" × 24" framed',
     price: "$500",
     status: "available",
-    featured: true,
     etsy: "https://www.etsy.com/listing/728015141/when-birds-meet-mark-sherman-original",
     description: "Hummingbird meeting up with Bird of Paradise."
   },
@@ -48,20 +34,8 @@ const PAINTINGS = [
     framed: "Wood frame with rounded corners",
     price: "$500",
     status: "available",
-    featured: true,
     etsy: "https://www.etsy.com/listing/729906133/next-stop-del-mar",
     description: "The old Santa Fe railroad crossing under the iconic Del Mar Bridge, heading northbound on its run from San Diego to Los Angeles, with Torrey Pines State Park and, in the distance, Mount Soledad and La Jolla village."
-  },
-  {
-    title: "Hands Holding (Sun) Flowers",
-    image: "hands-holding-sunflowers.jpg",
-    size: '22" × 30"',
-    framed: '34.5" × 43" framed',
-    price: "$1,500",
-    status: "available",
-    featured: true,
-    etsy: "https://www.etsy.com/listing/714183142/hands-holding-sun-flowers-mark-sherman",
-    description: "Two hands holding sunflowers, a take-off of Picasso's famous 'Hands Holding Flowers.' A trompe l'oeil illusion makes the watercolor paper appear to roll up at the edges, and the paper overlaps the matting at two corners."
   },
   {
     title: "Oxpecker? What Oxpecker?",
@@ -114,16 +88,6 @@ const PAINTINGS = [
     description: "The Old Point Loma Lighthouse at Cabrillo National Monument in San Diego."
   },
   {
-    title: "Neither Fish Nor Fowl",
-    image: "neither-fish-nor-fowl.jpg",
-    size: '13" × 29"',
-    framed: "Art-deco frame hand painted by the artist",
-    price: "$1,500",
-    status: "available",
-    etsy: "https://www.etsy.com/listing/728022663/neither-fish-nor-fowl-mark-sherman",
-    description: "A fantastical human butterfly female arising from water populated by fish and fowl."
-  },
-  {
     title: "A Very Still Life",
     image: "a-very-still-life.jpg",
     size: '14" × 18"',
@@ -142,15 +106,17 @@ const PAINTINGS = [
     status: "available",
     etsy: "https://www.etsy.com/listing/718841050/hands-holding-flowers-through-picasso",
     description: "A portrait of Picasso in which a take-off of his famous 'Hands Holding Flowers' painting shows through the stripes of his shirt."
-  },
-  {
-    title: "Red + Green = Fuscia",
-    image: "red-green-fuchsia.jpg",
-    size: '6" × 6"',
-    framed: '13" × 13" black frame',
-    price: "$400",
-    status: "available",
-    etsy: "https://www.etsy.com/listing/728006705/red-green-fuscia-mark-sherman-original",
-    description: "A bold red and white fuchsia plant against deep green foliage."
   }
+];
+
+/*
+  THE SLIDESHOW AT THE TOP OF THE PAGE
+  ------------------------------------
+  Shows photos from images/commissions/. To add one, put the photo in that folder
+  and add a line below. The caption appears under the slide; leave it "" for none.
+*/
+const SLIDESHOW = [
+  { image: "tipping-point.jpg", caption: "Tipping Point" },
+  { image: "pet-huskies.jpg",   caption: "Pet portrait" },
+  { image: "pet-bulldog.jpg",   caption: "Pet portrait" }
 ];

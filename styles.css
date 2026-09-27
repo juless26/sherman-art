@@ -94,7 +94,6 @@ a:hover { color: var(--accent-hover); }
   object-fit: contain;
   opacity: 0;
   transition: opacity 1.4s ease;
-  cursor: zoom-in;
 }
 .hero-slide.is-active { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
